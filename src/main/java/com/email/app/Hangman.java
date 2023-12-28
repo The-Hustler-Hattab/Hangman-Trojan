@@ -1,5 +1,6 @@
 package com.email.app;
 
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -114,7 +115,7 @@ public class Hangman {
     }
     public char[] getRandomWord(){
         int totalWords = words.length;
-        Random rand = new Random();
+        Random rand = new SecureRandom();
         int random = rand.nextInt(totalWords);
         String randword = words[random];
         char[] arr = randword.toCharArray();
